@@ -1,13 +1,19 @@
 # -*- coding: utf-8 -*-
 
-import cjson
 from cromlech.io.interfaces import IResponse
 from cromlech.browser.interfaces import IView
 
 
 def simple_jsonification(result):
     # We need more error handling here
-    return cjson.encode(result)
+    try:
+        import cjson
+        return cjson.encode(result)
+    except ImportError:
+        import json
+        return json.dumps(result)
+    else:
+        raise NotImplementedError
 
 
 class json(object):

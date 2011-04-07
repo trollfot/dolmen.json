@@ -10,13 +10,8 @@ history = open(join('docs', 'HISTORY.txt')).read()
 
 install_requires = [
     'cromlech.browser',
-    'setuptools',
-    'zc.buildout',
-    'python-cjson',
-    ]
-
-tests_require = [
     'cromlech.io',
+    'setuptools',
     ]
 
 setup(name = name,
@@ -34,9 +29,11 @@ setup(name = name,
       include_package_data = True,
       platforms = 'Any',
       zip_safe = False,
-      tests_require = tests_require,
       install_requires = install_requires,
-      extras_require = {'test': tests_require},
+      extras_require = {
+          'test': ['zope.interface'],
+          'cjson': ['python-cjson'],
+          },
       classifiers = [
         'Environment :: Web Environment',
         'Operating System :: OS Independent',
