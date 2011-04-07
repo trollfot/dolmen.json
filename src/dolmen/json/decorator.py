@@ -2,7 +2,7 @@
 
 import cjson
 from cromlech.io.interfaces import IResponse
-from cromlech.browser.interfaces import IHTTPRenderer
+from cromlech.browser.interfaces import IView
 
 
 def simple_jsonification(result):
@@ -24,7 +24,7 @@ class json(object):
     def __call__(self, *args, **kw):
         result = self.transform(self.func(*args, **kw))
         view = getattr(self.func, 'im_self', None)
-        if view is not None and IHTTPRenderer.providedBy(view):
+        if view is not None and IView.providedBy(view):
             # this is a method of an IRenderer
             if view.response is not None:
                 resp = IResponse(view.response)
