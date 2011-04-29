@@ -40,7 +40,7 @@ Decoration of an IView method
 =============================
 
   >>> from zope.interface import implements
-  >>> from cromlech.io.tests import TestResponse
+  >>> from cromlech.io.testing import TestResponse
   >>> from cromlech.browser.interfaces import IView
 
   >>> class View(object):
@@ -82,7 +82,7 @@ Decoration of an IView method
   None
 
   >>> view()
-  <cromlech.io.tests.TestResponse object at ...>
+  <cromlech.io.testing.TestResponse object at ...>
 
   >>> view.response is not None
   True
