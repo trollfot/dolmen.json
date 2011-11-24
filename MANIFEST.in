@@ -1,2 +1,2 @@
-recursive-include src/dolmen/json *.txt *.py
+recursive-include src *.txt *.py *.zcml
 recursive-include docs *.txt
